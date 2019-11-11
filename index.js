@@ -12,9 +12,7 @@ return request({
 
     let $ = cheerio.load(body);
 
-    let title = $('tbody');
-
-    console.log(title.text());
-
-    res.send('tbody');
+    let matchdaysSource = $('tbody');
+    body = matchdaysSource.text();
+    console.log(body);
 });
