@@ -5,6 +5,7 @@ const source = 'https://www.oliviacentre.com/olivia-sports/olivia-sports-2019-20
 
 var express = require('express');
 var app = express();
+var moment = require('moment')();
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
@@ -27,7 +28,9 @@ function getMatchDaySource(response) {
 
         let $ = cheerio.load(body);
 
-        let matchdaysSource = $('tbody');
-        response.send(matchdaysSource.html());
+        let timeHeader = moment.format('MMMM Do YYYY, h:mm:ss a');
+        let matchdaysSource = $('tbody').html();
+        let responseCode = `${timeHeader} <br /> ${matchdaysSource}`;
+        response.send(responseCode);
     });
 }
