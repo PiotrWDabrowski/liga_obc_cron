@@ -1,0 +1,27 @@
+{
+  "name": "liga_obc_cron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dabrowskipw/liga_obc_cron.git"
+  },
+  "author": "Piotr Dąbrowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dabrowskipw/liga_obc_cron/issues"
+  },
+  "homepage": "https://github.com/dabrowskipw/liga_obc_cron#readme",
+  "engines": {
+    "node": "8.16.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "request": "^2.88.0"
+  }
+}
