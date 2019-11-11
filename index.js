@@ -28,7 +28,6 @@ function getMatchDaySource(response) {
         let $ = cheerio.load(body);
 
         let matchdaysSource = $('tbody');
-        console.log(matchdaysSource.text());
-        response.send(matchdaysSource.text());
+        response.send(matchdaysSource.html());
     });
 }
