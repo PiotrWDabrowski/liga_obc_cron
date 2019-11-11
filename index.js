@@ -31,6 +31,19 @@ function getMatchDaySource(response) {
         let timeHeader = moment.format('MMMM Do YYYY, h:mm:ss a');
         let matchdaysSource = $('tbody').html();
         let responseCode = `${timeHeader} <br /> ${matchdaysSource}`;
-        response.send(responseCode);
+        request.post('https://us-central1-obc-liga.cloudfunctions.net/receiveMatchdays', {
+            json: {
+                matchdays: matchdaysSource
+            }
+        }, (error, res, body) => {
+            if (error) {
+                console.error(error)
+                return
+            }
+            console.log(`statusCode: ${res.statusCode}`)
+        })
+        if (response) {
+            response.send(responseCode);
+        }
     });
 }
