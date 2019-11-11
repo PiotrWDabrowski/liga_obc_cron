@@ -3,7 +3,7 @@ const request = require('request');
 
 const source = 'https://www.oliviacentre.com/olivia-sports/olivia-sports-2019-2020/';
 
-request({
+return request({
     method: 'GET',
     url: source
 }, (err, res, body) => {
@@ -15,4 +15,6 @@ request({
     let title = $('tbody');
 
     console.log(title.text());
+
+    res.send('tbody');
 });
