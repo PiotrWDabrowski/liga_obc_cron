@@ -42,7 +42,11 @@ function getMatchDaySource(matchDaySourcePromise, response) {
 
         if (err) return console.error(err);
 
-        let $ = cheerio.load(body);
+        let $ = cheerio.load(body, {
+            xml: {
+                normalizeWhitespace: true,
+            }
+        });
 
         let timeHeader = moment.format('MMMM Do YYYY, h:mm:ss a');
         let matchdaysSource = $('tbody').html();
